@@ -22,9 +22,17 @@ export default function NewQuizForm() {
 
     const cardIds = [];
 
-    // create the new cards here and add each card's id to cardIds
-    // create the new quiz here
-    dispatch(addQuizForTopicId(uuidv4, name, topicId, cardIds))
+    let quizId = uuidv4();
+
+    dispatch(
+      addQuizForTopicId({
+        name: name,
+        topicId: topicId,
+        cardIds: cardIds,
+        id: quizId,
+      })
+    );
+
     history.push(ROUTES.quizzesRoute());
   };
 
